@@ -10,6 +10,7 @@ function CardContainer() {
     const handleUpdateData = (index) => {
         updateCard(index);
         calcTotal();
+        calcTotalWeb();
     }
 
     const updateCard = (index) => {
@@ -21,6 +22,10 @@ function CardContainer() {
         const result = servicesData.filter((service) => service.hired === true)
             .reduce((sum, result) => sum + result.price, 0);
         setTotal(result);
+    }
+    const calcTotalWeb = () => {
+        // ( Nombre de pàgines + el nombre d'idiomes ) * 30€.
+
     }
 
     return (

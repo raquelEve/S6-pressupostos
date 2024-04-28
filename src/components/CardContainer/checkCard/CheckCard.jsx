@@ -1,4 +1,5 @@
 
+import WebForm from '../WebForm';
 import './CheckCard.css'
 import PropTypes from "prop-types";
 
@@ -20,6 +21,7 @@ const CheckCard = ({ title, description, price, hired, handleUpdateData }) => {
                     </label>
                 </div>
             </div>
+            <WebForm></WebForm>
         </div>
     );
 };
