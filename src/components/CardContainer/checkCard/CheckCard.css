@@ -1,0 +1,9 @@
+.card{
+    background: #eaeaea;
+}
+.card-actions, .card-actions .label{
+    height: 100%;
+}
+.card-actions .label input{
+    margin-right: 10px;
+}
