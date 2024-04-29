@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import servicesData from "../../data/servicesData";
+import servicesData from "../data/servicesData";
 
 // Creamos el contexto
 export const ServicesDataContext = createContext();

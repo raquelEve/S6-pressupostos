@@ -4,7 +4,7 @@ import TotalBox from "./totalBox/TotalBox.jsx";
 import {
   ServicesDataContext,
   useServicesDataContext,
-} from "../providers/servicesDataContext.jsx";
+} from "../../providers/servicesDataContext.jsx";
 
 function CardContainer() {
   const { services, handleUpdateData, total } = useServicesDataContext();

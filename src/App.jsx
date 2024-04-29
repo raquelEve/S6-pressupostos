@@ -3,7 +3,7 @@ import { useState } from "react";
 // import viteLogo from '/vite.svg'
 import "./App.css";
 import CheckCardContainer from "./components/CardContainer/CheckCardContainer";
-import { ServicesDataProvider } from "./components/providers/servicesDataContext";
+import { ServicesDataProvider } from "./providers/servicesDataContext";
 
 function App() {
   return (
