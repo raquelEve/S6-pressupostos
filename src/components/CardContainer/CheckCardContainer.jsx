@@ -1,41 +1,29 @@
-import { useState } from 'react';
-import servicesData from '../../data/servicesData.js';
-import CheckCard from './checkCard/CheckCard.jsx';
-import TotalBox from './TotalBox.jsx';
+import { useState } from "react";
+import CheckCard from "./checkCard/CheckCard.jsx";
+import TotalBox from "./totalBox/TotalBox.jsx";
+import {
+  ServicesDataContext,
+  useServicesDataContext,
+} from "../providers/servicesDataContext.jsx";
 
 function CardContainer() {
-    const [services, setServices] = useState(servicesData);
-    let [total, setTotal] = useState(0);
+  const { services, handleUpdateData, total } = useServicesDataContext();
+  console.log("services??", services);
 
-    const handleUpdateData = (index) => {
-        updateCard(index);
-        calcTotal();
-        calcTotalWeb();
-    }
+  return (
+    <>
+      {/* through the value we send an object with everything we need value= ((needs)) */}
 
-    const updateCard = (index) => {
-        const updateServices = [...servicesData];
-        updateServices[index].hired = !updateServices[index].hired;
-        setServices(updateServices);
-    }
-    const calcTotal = () => {
-        const result = servicesData.filter((service) => service.hired === true)
-            .reduce((sum, result) => sum + result.price, 0);
-        setTotal(result);
-    }
-    const calcTotalWeb = () => {
-        // ( Nombre de pàgines + el nombre d'idiomes ) * 30€.
-
-    }
-
-    return (
-        <>
-            {services.map((service, index) =>
-                <CheckCard key={service.id} {...service} handleUpdateData={() => handleUpdateData(index)}></CheckCard>
-            )}
-            <TotalBox total={total}></TotalBox>
-        </>
-    );
+      {services.map((service, index) => (
+        <CheckCard
+          key={service.id}
+          {...service}
+          handleUpdateData={() => handleUpdateData(index)}
+        ></CheckCard>
+      ))}
+      <TotalBox total={total}></TotalBox>
+    </>
+  );
 }
 
 export default CardContainer;
