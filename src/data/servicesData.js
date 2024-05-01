@@ -18,11 +18,7 @@ const servicesData = [
         title: "Web",
         description: "Programación d'una web responsive completa",
         price: 500,
-        hired: false,
-        web: {
-            pages: 1,
-            languages: 1
-        }
+        hired: false
     },
 ];
 

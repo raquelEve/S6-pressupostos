@@ -1,14 +1,12 @@
-import { useState } from "react";
 import CheckCard from "./checkCard/CheckCard.jsx";
 import TotalBox from "./totalBox/TotalBox.jsx";
 import {
-  ServicesDataContext,
   useServicesDataContext,
 } from "../../providers/servicesDataContext.jsx";
 
 function CardContainer() {
-  const { services, handleUpdateData, total } = useServicesDataContext();
-  console.log("services??", services);
+  const { services, handleUpdateData, showWebForm } = useServicesDataContext();
+
 
   return (
     <>
@@ -19,9 +17,11 @@ function CardContainer() {
           key={service.id}
           {...service}
           handleUpdateData={() => handleUpdateData(index)}
+          // showWebForm={() => showWebForm(index)}
+          showWebForm={index === 2 && service.hired}
         ></CheckCard>
       ))}
-      <TotalBox total={total}></TotalBox>
+      <TotalBox></TotalBox>
     </>
   );
 }
