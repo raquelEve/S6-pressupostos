@@ -6,12 +6,12 @@ import {
 const WebForm = () => {
   const { handlePagesChange, handleLangChange, languages, pages } = useServicesDataContext();
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col webFormMainDiv">
       <div className="form-control">
         <label>Nombre de págines:</label>
         <div className="flex justify-center place-items-center">
           <button className="op-button" onClick={() => handlePagesChange(-1)}>-</button>
-          <input type="text" className="w-10 rounded-md px-2" value={pages} />
+          <input type="text" className="w-10 rounded-md px-2 text-center" value={pages} />
           <button className="op-button" onClick={() => handlePagesChange(+1)}>+</button>
         </div>
       </div>
@@ -19,11 +19,10 @@ const WebForm = () => {
         <label>Nombre de llenguatges:</label>
         <div className="flex justify-center items-center place-items-center">
           <button className="op-button" onClick={() => handleLangChange(-1)}>-</button>
-          <input type="text" className="w-10 rounded-md px-2" value={languages} />
+          <input type="text" className="w-10 rounded-md px-2 text-center" value={languages} />
           <button className="op-button" onClick={() => handleLangChange(+1)}>+</button>
         </div>
       </div>
-      <button className="btn">Hello daisyUI</button>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 const CheckCard = ({ title, description, price, hired, handleUpdateData, showWebForm }) => {
   return (
+
     <div className="card bg-base-200 shadow-xl  mb-3">
       <div className="flex align-middle p-6  border-2 rounded-md">
         <div className="card-header text-left ml-2 w-2/5 ">
@@ -30,13 +31,14 @@ const CheckCard = ({ title, description, price, hired, handleUpdateData, showWeb
           </div>
         </div>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end p-6">
         {showWebForm && <WebForm />}
       </div>
     </div>
   );
 };
 CheckCard.Prototypes = {
+
   title: PropTypes.string,
   description: PropTypes.string,
   price: PropTypes.number,
