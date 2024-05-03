@@ -1,0 +1,17 @@
+header nav{
+    padding-left: 0;
+    padding-right: 0;
+}
+header nav li{
+    margin: 0 10px;
+}
+header nav li:last-child{
+    margin: 0 0 0 10px;
+}
+header .active{
+    background: red;
+}
+header .navbarLink{
+    color:red;
+    background: grey;
+}

@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+#homeMain{
+    height: 100vh;
+}
+
+#homeMain> div{
+   width:80%;
+}

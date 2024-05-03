@@ -1,6 +1,6 @@
 import {
     useServicesDataContext,
-} from "../../../providers/servicesDataContext"
+} from "../../../contexts/servicesDataContext"
 
 const TotalBox = () => {
     const { total } = useServicesDataContext();

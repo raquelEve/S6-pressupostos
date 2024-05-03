@@ -2,7 +2,7 @@ import CheckCard from "./checkCard/CheckCard.jsx";
 import TotalBox from "./totalBox/TotalBox.jsx";
 import {
   useServicesDataContext,
-} from "../../providers/servicesDataContext.jsx";
+} from "../../contexts/servicesDataContext.jsx";
 
 function CardContainer() {
   const { services, handleUpdateData, showWebForm } = useServicesDataContext();

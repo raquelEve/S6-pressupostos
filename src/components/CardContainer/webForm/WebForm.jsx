@@ -1,7 +1,7 @@
 import "./webForm.css"
 import {
   useServicesDataContext,
-} from "../../../providers/servicesDataContext"
+} from "../../../contexts/servicesDataContext"
 
 const WebForm = () => {
   const { handlePagesChange, handleLangChange, languages, pages } = useServicesDataContext();
