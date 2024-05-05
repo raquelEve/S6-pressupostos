@@ -1,4 +1,5 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+import { createContext, useContext, useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
 import servicesData from "../data/servicesData";
 
 // Creamos el contexto
@@ -25,6 +26,8 @@ export function ServicesDataProvider({ children }) {
     showWebForm();
     let webcalc = calcTotalWeb();
     calcTotal(webcalc);
+    getHiredServicesData();
+
   };
 
   // * calc the webForm and update the total of the "pressupost"
@@ -32,6 +35,7 @@ export function ServicesDataProvider({ children }) {
 
     let webcalc = calcTotalWeb();
     calcTotal(webcalc);
+    getHiredServicesData();
   };
 
   //* control (+ & -): lang + calc web part
@@ -112,10 +116,54 @@ export function ServicesDataProvider({ children }) {
     }
   };
 
+  const getHiredServicesData = () => {
+    const resultObj = {};
+    const extraWeb = {};
+    const result = services.filter((s) => s.hired == true);
+
+    let webIsSelected = result.find((res) => (res.title === "Web"));
+
+    if (webIsSelected) {
+      extraWeb.pages = pages;
+      extraWeb.languages = languages;
+      webIsSelected.extras = extraWeb;
+    }
+
+    resultObj.services = result;
+    resultObj.total = total;
+    // console.log("result: getHiredServicesData", resultObj);
+    return resultObj;
+  }
+
+  const resetServices = () => {
+    const resetServices = services.map((s) => ({ ...s, hired: false }));
+    setServices(resetServices);
+    setPages(0);
+    setLanguages(0);
+
+  }
+
+  const value = {
+    services,
+    handleUpdateData,
+    total,
+    handlePagesChange,
+    handleLangChange,
+    showWebForm,
+    pages,
+    languages,
+    getHiredServicesData,
+    resetServices
+
+  }
+
   return (
 
-    <ServicesDataContext.Provider value={{ services, handleUpdateData, total, handlePagesChange, handleLangChange, showWebForm, pages, languages }}>
+    <ServicesDataContext.Provider value={value}>
       {children}
     </ServicesDataContext.Provider>
   );
 }
+ServicesDataProvider.propTypes = {
+  children: PropTypes.node
+};

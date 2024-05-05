@@ -1,6 +1,12 @@
 import { ServicesDataProvider } from '../../contexts/servicesDataContext';
-import CheckCardContainer from '../CardContainer/CheckCardContainer';
+import { UserDataContextProvider } from '../../contexts/userDataContext';
+// import { QuoteListContextProvider } from '../../contexts/quotationListContext';
+import { QuoteListContextProvider } from '../../contexts/quoteListContext'
 import Navbar from '../common/Navbar/Navbar';
+import CheckCardContainer from '../CardContainer/CheckCardContainer';
+import UserDataForm from '../userDataContainer/userDataForm'
+import QuoteListContainer from '../quoteListContainer/QuoteListContainer';
+
 
 const CalculadoraPage = () => {
     return (
@@ -10,7 +16,13 @@ const CalculadoraPage = () => {
                 <h1 className="text-6xl">Frontender:itacademy</h1>
             </div>
             <ServicesDataProvider>
-                <CheckCardContainer />
+                <QuoteListContextProvider> {/* Corregido */}
+                    <UserDataContextProvider>
+                        <CheckCardContainer />
+                        <UserDataForm />
+                        <QuoteListContainer />
+                    </UserDataContextProvider>
+                </QuoteListContextProvider> {/* Corregido */}
             </ServicesDataProvider>
         </div>
     );

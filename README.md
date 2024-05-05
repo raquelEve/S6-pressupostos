@@ -65,3 +65,7 @@ $ npm install react-router-dom
 + NavLinks
     * Active NavLink Classes with React Router:<br />
     https://ultimatecourses.com/blog/active-navlink-classes-with-react-router
+
++ Uses of Forms
+    * How to get the Value of an Input field in React <br/>
+    https://bobbyhadz.com/blog/react-get-input-value
