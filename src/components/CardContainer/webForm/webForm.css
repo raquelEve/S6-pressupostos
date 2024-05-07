@@ -1,15 +1,9 @@
-.webFormMainDiv{
-        width: 60%;
+.webFormMainDiv {
+  width: 60%;
 }
 
-.op-button{
-  
-        background-color: #fbfbfb;
-        width: 16px;
-        height: 16px;
-        border-radius: 16px;
-        line-height: 1px;
-        margin: 5px;
-        border: 1px solid #808080;
-        color: grey;
+.op-button {
+  height: 20px !important;
+  width: 20px important;
+  min-height: 20px important;
 }
