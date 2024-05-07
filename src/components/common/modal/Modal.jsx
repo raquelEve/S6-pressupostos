@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 export default function Modal({ text }) {
-  console.log("modal text", text);
   //   const [newText, setNewText] = useState({});
   //   setNewText(text);
   return (

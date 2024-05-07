@@ -15,9 +15,7 @@ export const QuoteListContextProvider = ({ children }) => {
   const [quoteList, setQuoteList] = useState([]);
 
   // Efecto para mostrar el estado actualizado de quoteList
-  useEffect(() => {
-    console.log("quote: effect actualizado:", quoteList);
-  }, [quoteList]);
+  useEffect(() => {}, [quoteList]);
 
   // Función de saludo
   const handleUpdateQuoteList = (quote) => {
@@ -28,16 +26,32 @@ export const QuoteListContextProvider = ({ children }) => {
         quote.user.email !== null
       ) {
         const updatedQuoteList = [...quoteList, quote];
-        // console.log("Hola: update", updatedQuoteList);
         setQuoteList(updatedQuoteList);
       }
     }
   };
 
-  // Objeto de valor que contiene la función de saludo
+  //* Order by functions::
+
+  const orderbyName = () => {
+    console.log("by name");
+    // const items = ["réservé", "premier", "communiqué", "café", "adieu", "éclair"];
+    // items.sort((a, b) => a.localeCompare(b));
+  };
+  const orderbyData = () => {
+    console.log("by data");
+  };
+  const orderbyImport = () => {
+    console.log("by import");
+  };
+
+  //! Objeto de value
   const value = {
     handleUpdateQuoteList,
     quoteList,
+    orderbyName,
+    orderbyData,
+    orderbyImport,
   };
 
   return (

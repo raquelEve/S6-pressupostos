@@ -20,7 +20,6 @@ export const UserDataContextProvider = ({ children }) => {
   const { handleUpdateQuoteList, quoteList } = useQuoteListContext();
   let id = 0;
 
-  console.log("lista length", quoteList.length);
   // 5. Create the useState & useEffect
   const [userData, setUserData] = useState({
     name: null,
@@ -29,10 +28,7 @@ export const UserDataContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    console.log("User: effect, updated:", userData);
-
     let quoteObj = buildQuoteObject();
-    console.log("user:effect", quoteObj);
     handleUpdateQuoteList(quoteObj);
   }, [userData]);
 
@@ -67,16 +63,11 @@ export const UserDataContextProvider = ({ children }) => {
     quoteObj.total = total; //este es nuevo
     quoteObj.user = { ...userData };
     quoteObj.id = quoteList.length;
-    console.log("user: user", userData);
-    console.log("user: services", getHiredServicesData());
-    console.log("user: obj", quoteObj);
     return quoteObj;
   };
 
   // 8. Log userData to console after each update
-  useEffect(() => {
-    // console.log("User servicio", userData);
-  }, [userData]);
+  useEffect(() => {}, [userData]);
 
   // 9. get funtcion
   const getUserData = () => {

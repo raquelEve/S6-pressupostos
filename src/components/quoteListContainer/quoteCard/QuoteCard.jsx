@@ -2,11 +2,7 @@ import React from "react";
 
 // pasmos las variables a imprimir por el objeto quote
 const QuoteCard = ({ quote }) => {
-  console.log("quote in component", quote);
   const { services, user, total, id } = quote;
-
-  console.log("services:in component", services);
-  console.log("user in component", user);
 
   return (
     <div className="card bg-base-200 shadow-xl  my-3 p-6">

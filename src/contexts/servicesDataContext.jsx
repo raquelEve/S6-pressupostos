@@ -132,7 +132,6 @@ export function ServicesDataProvider({ children }) {
 
     resultObj.services = result;
     resultObj.total = total;
-    // console.log("result: getHiredServicesData", resultObj);
     return resultObj;
   };
 
