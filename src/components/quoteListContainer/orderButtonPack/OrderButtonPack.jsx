@@ -3,12 +3,21 @@ import { useQuoteListContext } from "../../../contexts/quoteListContext";
 
 export default function OrderButtonPack() {
   // 2 call the var and functions that we will need
-  const { orderbyName, orderbyData, orderbyImport } = useQuoteListContext();
+  const { orderbyName, orderbyData, orderbyImport, orderBySearch } =
+    useQuoteListContext();
 
   return (
     <div className="oderButtonPack flex flex-row justify-end my-6 card bg-base-200 shadow-xl p-4">
+      {/* type:search */}
       <label className="input input-bordered flex items-center gap-2 mx-2">
-        <input type="text" className="grow" placeholder="Search" />
+        <input
+          type="text"
+          className="grow"
+          placeholder="Search"
+          name="search"
+          // onChange={orderBySearch}
+          onChange={(e) => orderBySearch(e.target.value)}
+        />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 16 16"
@@ -22,6 +31,7 @@ export default function OrderButtonPack() {
           />
         </svg>
       </label>
+
       <button className="btn" onClick={orderbyData}>
         Data
       </button>

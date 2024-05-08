@@ -13,12 +13,13 @@ export const useQuoteListContext = () => {
 export const QuoteListContextProvider = ({ children }) => {
   // variables de aqui:
   const [quoteList, setQuoteList] = useState([]);
+  const [quoteListCopy, setQuoteListCopy] = useState(quoteList);
   const [hasBeenSortered, setHasBeenSortered] = useState(false);
 
   // Efecto para mostrar el estado actualizado de quoteList
   useEffect(() => {}, [quoteList]);
 
-  // Función de saludo
+  // Función
   const handleUpdateQuoteList = (quote) => {
     if (quote.services.length !== 0) {
       if (
@@ -27,6 +28,7 @@ export const QuoteListContextProvider = ({ children }) => {
         quote.user.email !== null
       ) {
         const updatedQuoteList = [...quoteList, quote];
+        setQuoteListCopy(updatedQuoteList);
         setQuoteList(updatedQuoteList);
       }
     }
@@ -58,6 +60,20 @@ export const QuoteListContextProvider = ({ children }) => {
     setQuoteList(ordercopy);
   };
 
+  const orderBySearch = (e) => {
+    // * filter does a copy without references
+
+    setQuoteList(quoteListCopy);
+    if (e === "") {
+      setQuoteList(quoteListCopy);
+    } else {
+      const ordercopy = quoteListCopy.filter((quote) =>
+        quote.user.name.includes(e)
+      );
+      setQuoteList(ordercopy);
+    }
+  };
+
   //! Objeto de value
   const value = {
     handleUpdateQuoteList,
@@ -65,6 +81,7 @@ export const QuoteListContextProvider = ({ children }) => {
     orderbyName,
     orderbyData,
     orderbyImport,
+    orderBySearch,
   };
 
   return (
