@@ -13,6 +13,7 @@ export const useQuoteListContext = () => {
 export const QuoteListContextProvider = ({ children }) => {
   // variables de aqui:
   const [quoteList, setQuoteList] = useState([]);
+  const [hasBeenSortered, setHasBeenSortered] = useState(false);
 
   // Efecto para mostrar el estado actualizado de quoteList
   useEffect(() => {}, [quoteList]);
@@ -34,15 +35,27 @@ export const QuoteListContextProvider = ({ children }) => {
   //* Order by functions::
 
   const orderbyName = () => {
-    console.log("by name");
-    // const items = ["réservé", "premier", "communiqué", "café", "adieu", "éclair"];
-    // items.sort((a, b) => a.localeCompare(b));
+    const ordercopy = [...quoteList];
+    ordercopy.sort((a, b) => a.user.name.localeCompare(b.user.name));
+    setQuoteList(ordercopy);
   };
+
   const orderbyData = () => {
-    console.log("by data");
+    const ordercopy = [...quoteList];
+    ordercopy.sort((a, b) => a.id - b.id);
+    setQuoteList(ordercopy);
   };
+
   const orderbyImport = () => {
-    console.log("by import");
+    const ordercopy = [...quoteList];
+
+    if (hasBeenSortered) {
+      ordercopy.sort((a, b) => b.total - a.total);
+    } else {
+      ordercopy.sort((a, b) => a.total - b.total);
+    }
+    setHasBeenSortered(!hasBeenSortered);
+    setQuoteList(ordercopy);
   };
 
   //! Objeto de value

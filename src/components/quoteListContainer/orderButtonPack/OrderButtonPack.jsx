@@ -25,17 +25,18 @@ export default function OrderButtonPack() {
       <button className="btn" onClick={orderbyData}>
         Data
       </button>
-      <div className="btn mx-2">
+      <button className="btn" onClick={orderbyImport}>
+        Import
+      </button>
+
+      {/* <div className="btn mx-2">
         <label className="swap swap-rotate" onClick={orderbyImport}>
           Import
-          {/* this hidden checkbox controls the state */}
           <input type="checkbox" />
-          {/* icon */}
           <span className="swap-on fill-current w-10 h-10">&#8963;</span>
-          {/*  icon */}
           <span className="swap-off fill-current w-10 h-10">&#8964;</span>
         </label>
-      </div>
+      </div> */}
       <button className="btn mx-2" onClick={orderbyName}>
         Nom
       </button>
