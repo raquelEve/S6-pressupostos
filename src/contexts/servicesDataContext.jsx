@@ -28,10 +28,12 @@ export function ServicesDataProvider({ children }) {
   };
 
   const [services, setServices] = useState(servicesData);
+  const [servicesCopy, setServicesCopy] = useState(servicesData);
   const [total, setTotal] = useState(0);
   const [pages, setPages] = useState(0);
   const [languages, setLanguages] = useState(0);
   const [txtSending, setTxtSending] = useState("");
+  const [anualDisc, setAnualDisc] = useState(false);
 
   // * control the process of calculate total without the webform
   const handleUpdateData = (index) => {
@@ -64,6 +66,7 @@ export function ServicesDataProvider({ children }) {
   //* use effect => webForm buttons (+ & -)
   useEffect(() => {
     handleUpdateCalc();
+    anualDisc;
   });
 
   //* update the checkbox value
@@ -135,6 +138,21 @@ export function ServicesDataProvider({ children }) {
     return resultObj;
   };
 
+  // anualDiscount
+  const anualDiscount = () => {
+    setAnualDisc(!anualDisc);
+    console.log("anualDisc", anualDisc);
+    if (!anualDisc) {
+      const servicesDiscount = services.map((s) => ({
+        ...s,
+        price: s.price - s.price * 0.2,
+      }));
+      setServices(servicesDiscount);
+    } else {
+      setServices(servicesCopy);
+    }
+  };
+
   const openMyModal = (click) => {
     if (click === "pag") {
       setTxtSending(txtModalPag);
@@ -165,6 +183,8 @@ export function ServicesDataProvider({ children }) {
     resetServices,
     openMyModal,
     txtSending,
+    anualDiscount,
+    anualDisc,
   };
 
   return (
