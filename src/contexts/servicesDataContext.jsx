@@ -140,8 +140,6 @@ export function ServicesDataProvider({ children }) {
 
   // anualDiscount
   const anualDiscount = () => {
-    setAnualDisc(!anualDisc);
-    console.log("anualDisc", anualDisc);
     if (!anualDisc) {
       const servicesDiscount = services.map((s) => ({
         ...s,
@@ -170,6 +168,43 @@ export function ServicesDataProvider({ children }) {
     setLanguages(0);
   };
 
+
+  const fillServicesFromUrl = (queryParams) => {
+
+    const updatedServices = [...services];
+
+    if (queryParams.get("Seo")) {
+      updatedServices[0].hired = true;
+      let checkSeo = document.getElementById("Seo")
+      checkSeo.checked = true;
+    }
+    if (queryParams.get("Ads")) {
+      updatedServices[1].hired = true;
+      let checkAds = document.getElementById("Ads")
+      checkAds.checked = true;
+    }
+    if (queryParams.get("Web")) {
+      updatedServices[2].hired = true;
+      let checkWeb = document.getElementById("Web")
+      checkWeb.checked = true;
+    }
+    if (!updatedServices[2].extras) {
+      updatedServices[2].extras = {};
+    }
+    if (queryParams.get("pages")) {
+      updatedServices[2].extras.pages = parseInt(queryParams.get("pages"));
+      setPages(queryParams.get("pages"))
+    }
+
+    if (queryParams.get("lang")) {
+      updatedServices[2].extras.languages = parseInt(queryParams.get("lang"));
+      setLanguages(queryParams.get("lang"));
+    }
+
+    setServices(updatedServices);
+  }
+
+
   const value = {
     services,
     handleUpdateData,
@@ -185,6 +220,7 @@ export function ServicesDataProvider({ children }) {
     txtSending,
     anualDiscount,
     anualDisc,
+    fillServicesFromUrl
   };
 
   return (

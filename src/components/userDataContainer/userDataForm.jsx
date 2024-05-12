@@ -17,21 +17,7 @@ const UserDataForm = () => {
     const formRef = useRef(null);
 
     // 5. recoger los datos
-    // const handleSubmit = () => {
 
-    //     event.preventDefault(); // Evita el envío del formulario
-    //     // TODO: 6. comprobar qu tenemos todos los datos
-
-    //     console.log("name form", nameRef.current.value);
-    //     console.log("tel form", telRef.current.value);
-    //     console.log("mail form", emailRef.current.value);
-
-    //     // 7. enviar
-    //     handleQuoteDataProcess(nameRef.current.value, telRef.current.value, emailRef.current.value);
-
-    //     // 8. resetar
-    //     formRef.current.reset();
-    // }
     const handleSubmit = async (event) => {
         event.preventDefault(); // Evita el envío del formulario
         const name = nameRef.current.value;

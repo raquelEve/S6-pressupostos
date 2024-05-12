@@ -37,6 +37,7 @@ const WebForm = () => {
             type="text"
             className="w-10 rounded-md px-2 text-center"
             value={pages}
+            id="inputPages"
           />
           <button
             className="btn btn-circle btn-outline btn-xs op-button"
@@ -68,6 +69,7 @@ const WebForm = () => {
             type="text"
             className="w-10 rounded-md px-2 text-center"
             value={languages}
+            id="inputLang"
           />
           <button
             className="btn btn-circle btn-outline btn-xs op-button"

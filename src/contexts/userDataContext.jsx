@@ -66,8 +66,8 @@ export const UserDataContextProvider = ({ children }) => {
     return quoteObj;
   };
 
-  // 8. Log userData to console after each update
-  useEffect(() => {}, [userData]);
+  // 8. Log userData each update
+  useEffect(() => { }, [userData]);
 
   // 9. get funtcion
   const getUserData = () => {

@@ -33,6 +33,7 @@ const CheckCard = ({
                 className="checkbox checkbox-secondary"
                 checked={hired}
                 onChange={handleUpdateData}
+                id={title}
               />
               <span className="label-text">Afegir</span>
             </label>
