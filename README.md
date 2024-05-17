@@ -69,3 +69,5 @@ $ npm install react-router-dom
 + Uses of Forms
     * How to get the Value of an Input field in React <br/>
     https://bobbyhadz.com/blog/react-get-input-value
++ inner html in String
+ *https://blog.logrocket.com/using-dangerouslysetinnerhtml-react-application/
